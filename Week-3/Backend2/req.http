@@ -1,0 +1,122 @@
+
+//This file acts like a client side application (rest client software) until we create a frontend
+
+//get and delete requests will not have a body so these two requests can send data through end point 
+//put and post requests will have a body and send the data to the API as the body
+
+
+
+//this is the protected route
+//read all users
+GET http://localhost:4000/user-api/users     
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrc2hpdGhhc2hhcm1hNjgyQGdtYWlsLmNvbSIsImlhdCI6MTc3Mjg3NzI0OSwiZXhwIjoxNzcyODgwODQ5fQ.MP80jVaV7OIAgA47SuMsXUbH2UPHp2EIrKwrXadhTG8; Path=/; HttpOnly; SameSite=Lax         
+
+//### -> line break
+
+
+//read user that is logged in
+###
+GET http://localhost:4000/user-api/user
+
+###           
+POST http://localhost:4000/user-api/users
+Content-Type: application/json   
+
+{
+    "username":"akshitha",
+    "password":"15092006",
+    "email":"akshithasharma682@gmail.com",
+    "age":12
+}
+//post req is sent by client and client should mention the type of content  
+
+
+
+###
+PUT http://localhost:4000/user-api/users/69aa7455beaa2916fcfc5d9f
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrc2hpdGhhc2hhcm1hNjgyQGdtYWlsLmNvbSIsImlhdCI6MTc3Mjg3NzI0OSwiZXhwIjoxNzcyODgwODQ5fQ.MP80jVaV7OIAgA47SuMsXUbH2UPHp2EIrKwrXadhTG8; Path=/; HttpOnly; SameSite=Lax
+
+{
+    "username":"Ak",
+    "password":"15092006",
+    "email":"akshithasharma682@gmail.com",
+    "age":12
+}
+
+
+###
+DELETE http://localhost:4000/user-api/users/69aa73b34a61092c6e65e1fa     
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrc2hpdGhhc2hhcm1hNjgyQGdtYWlsLmNvbSIsImlhdCI6MTc3Mjg3NzI0OSwiZXhwIjoxNzcyODgwODQ5fQ.MP80jVaV7OIAgA47SuMsXUbH2UPHp2EIrKwrXadhTG8; Path=/; HttpOnly; SameSite=Lax 
+ //we can add the id of the user to be deleted as /id after/users
+
+
+###
+//user login
+
+POST http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+{
+   "email":"akshithasharma682@gmail.com",
+   "password":"15092006"
+}
+
+###
+
+//add product to user cart
+
+PUT http://localhost:4000/user-api/cart/product-id/69aacc501fc3af9883a55c7c
+
+
+
+
+
+
+
+
+
+
+
+###
+
+//getting all products
+
+ GET http://localhost:4000/product-api/products
+
+
+###
+ GET http://localhost:4000/product-api/products/106
+
+
+
+###
+ POST http://localhost:4000/product-api/products
+ Content-Type: application/json
+
+ {
+    "productId":"102",
+    "productName":"tablet",
+    "price":30000,
+    "brand":"samsung"
+ }
+
+
+###
+
+ PUT http://localhost:4000/product-api/products/102
+ Content-Type: application/json
+
+ {
+    "productId":102,
+    "name":"tablet",
+    "price":30000,
+    "brand":"oppo"
+ }
+
+
+###
+
+ DELETE http://localhost:4000/product-api/products/102
+
+
